@@ -1,0 +1,56 @@
+GENERAL:
+  experiment: shkp
+  seed: 0
+
+DATA:
+  # data path
+  anno_dir: ./datasets/KeypointNet/annotations/all.json
+  split_root: ./datasets/KeypointNet/splits
+  img_root: ./datasets/KeypointNet/images
+  weight_path:
+  class_name: airplane
+  decay_factor: 0.02
+
+STRUCTURE:
+  query_num: 50
+  dropout: 0.
+  norm: instance
+
+TRAIN:
+  max_epochs: 50
+  weight_decay: 0.0001
+  # batch_size per gpu
+  batch_size: 4
+  load_from_checkpoint:
+  resume_from_checkpoint:
+
+  # one cycle lr scheduler
+  lr_max: 0.0001 #0.0001
+  pct_start: 0.1    # percentage of the cycle spent increasing lr
+  div_factor: 25    # determine the initial lr (lr_max / div_factor)
+  final_div_factor: 1e4 #1e4   # determine the final lr (lr_max / final_div_factor)
+  start_epoch: 0
+
+  train_file: train.txt
+  train_workers: 2
+
+  val_file: val.txt
+  val_workers: 2
+
+  test_file: test.txt
+  test_workers: 0
+
+  debug: False
+
+
+
+
+
+
+
+
+
+
+
+
+
